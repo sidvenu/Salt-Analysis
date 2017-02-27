@@ -113,7 +113,56 @@ public class Radicals {
         observation.add("KMnO<sub><small>4</small></sub> is decolourised");
         conclusion.add(formula+" maybe present");
 
+        experiment.add("To the salt solution, calcium chloride solution is added");
+        observation.add("White precipitate insoluble in acetic acid");
+        conclusion.add("CaC<sub><small>2</small></sub>O<sub><small>4</small></sub> is formed. "+formula+" is confirmed");
+
         listRadical.add(new Radical("Oxalate", formula, experiment,observation,conclusion));
+        /***********----------***********/
+
+        experiment.clear();
+        observation.clear();
+        conclusion.clear();
+
+        /*********** Sulphate ***********/
+        formula = "SO<sub><small>4</small></sub><sup><small>2-</small></sup>";
+
+        experiment.add("Salt solution is acidified with dil.HCl, boiled and BaCl<sub><small>2</small></sub> solution is added");
+        observation.add("White precipitate is formed and is insoluble in conc.HCl");
+        conclusion.add(formula+" is confirmed");
+
+        experiment.add("To the salt solution, acetic acid is added followed by Lead acetate");
+        observation.add("White precipitate");
+        conclusion.add("Due to the formation of PbSO<sub><small>4</small></sub>, "+formula+" is confirmed");
+
+        listRadical.add(new Radical("Sulphate", formula, experiment,observation,conclusion));
+        /***********----------***********/
+
+        experiment.clear();
+        observation.clear();
+        conclusion.clear();
+
+        /*********** Sulphite ***********/
+        formula = "SO<sub><small>3</small></sub><sup><small>2-</small></sup>";
+
+        experiment.add("To the salt, dil.HCl is added");
+        observation.add("Gas with a choking smell");
+        conclusion.add("Maybe "+formula);
+
+        experiment.add("Evolved gas is passed through acidified K<sub><small>2</small></sub>Cr<sub><small>2</small></sub>O" +
+                "<sub><small>7</small></sub>");
+        observation.add("Solution turns green without turbidity");
+        conclusion.add(formula+" is present");
+
+        experiment.add("Evolved gas is passed through acidified KMnO<sub><small>4</small></sub>");
+        observation.add("Solution turns clear and colourless");
+        conclusion.add(formula+" is confirmed");
+
+        experiment.add("Wet Test:\nTo the salt solution, BaCl<sub><small>2</small></sub> solution is added");
+        observation.add("White precipitate readily soluble in dil.HCl");
+        conclusion.add("Due to the formation of Barium Sulphate, which readily dissolves in dil.HCl. "+formula+"is confirmed");
+
+        listRadical.add(new Radical("Sulphite", formula, experiment,observation,conclusion));
         /***********----------***********/
 
         return new Radical("","", experiment, observation, conclusion);
