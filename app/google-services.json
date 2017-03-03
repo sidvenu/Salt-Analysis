@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "618023260265",
+    "firebase_url": "https://salt-analysis.firebaseio.com",
+    "project_id": "salt-analysis",
+    "storage_bucket": "salt-analysis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618023260265:android:d34874f387add0d0",
+        "android_client_info": {
+          "package_name": "io.github.siddharthvenu.saltanalysis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618023260265-nsom6il7lqqj0qtjldeh90rbljvt0p45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.github.siddharthvenu.saltanalysis",
+            "certificate_hash": "7d2115916047f1a75aded563e76831a08d261157"
+          }
+        },
+        {
+          "client_id": "618023260265-ktkq1qqclhadfk57tdp5beteslfuvj1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2ZJX8x0INR8M0HsYIxZlGoLWEZ5haKSI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

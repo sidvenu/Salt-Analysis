@@ -27,6 +27,6 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
     private Intent launchNextScreen(boolean isAcidic){
-        return new Intent(this, DisplayRadicalActivity.class).putExtra("isAcidic",isAcidic);
+        return new Intent(this, RadicalListActivity.class).putExtra("isAcidic",isAcidic);
     }
 }

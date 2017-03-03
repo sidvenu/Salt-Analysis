@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Salt Analysis</string>
+    <string name="experiment">Experiment</string>
+    <string name="observation">Observation</string>
+    <string name="conclusion">Conclusion</string>
+    <string name="ad_unit_radicalinfo_bottom">ca-app-pub-6396272384624113/9574745587</string>
 </resources>
