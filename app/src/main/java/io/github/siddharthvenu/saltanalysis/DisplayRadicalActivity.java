@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -23,14 +25,29 @@ public class DisplayRadicalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_radical);
 
-        AdView adView = (AdView)findViewById(R.id.adView);
+        final AdView adView = (AdView)findViewById(R.id.adView);
+        adView.setVisibility(View.GONE);
         /*
         adView.setAdSize(AdSize.SMART_BANNER);
         adView.setAdUnitId(getString(R.string.ad_unit_radicalinfo_bottom));*/
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("9DE01AF95F35E03D3796E01505E5FFD4")
                 .build();
         adView.loadAd(request);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                adView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+            }
+        });
 
         String radicalName = getIntent().getStringExtra("radical");
         Log.v("HAHA",radicalName);
@@ -43,7 +60,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
         if (radical != null) {
             ActionBar actionBar = getSupportActionBar();
             if(actionBar!=null)
-                actionBar.setTitle(Html.fromHtml(radicalName+" - "+radical.formula));
+                actionBar.setTitle(Html.fromHtml(stringChangeHtml(radicalName+" - "+radical.formula)));
             ArrayList<Experiment> experiments = new ArrayList<>();
             for(int i=0;i<radical.experiment.size();i++){
                 experiments.add(i, new Experiment(radical.experiment.get(i), radical.observation.get(i), radical.conclusion.get(i)));
@@ -51,5 +68,12 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             ListView listView = (ListView) findViewById(R.id.radical_experiments_list);
             listView.setAdapter(new ExperimentAdapter(experiments, this));
         }
+    }
+    String stringChangeHtml(String s){
+        return s.replace("\n", "<br />")
+                .replace("{{", "<sup><small><small>")
+                .replace("}}", "</small></small></sup>")
+                .replace("{", "<sub><small><small>")
+                .replace("}", "</small></small></sub>");
     }
 }

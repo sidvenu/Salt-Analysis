@@ -4,34 +4,48 @@ package io.github.siddharthvenu.saltanalysis;
  * Created by siddh on 02-03-2017.
  */
 
-public class Experiment {
+class Experiment {
     private String experiment, observation, conclusion;
 
-    public Experiment(String experiment, String observation, String conclusion){
-        this.experiment=experiment;
-        this.observation=observation;
-        this.conclusion=conclusion;
+    Experiment(String experiment, String observation, String conclusion) {
+        setExperiment(experiment);
+        setObservation(observation);
+        setConclusion(conclusion);
     }
 
-    public void setExperiment(String experiment){
-        this.experiment=experiment;
+    private void setExperiment(String experiment) {
+        this.experiment = experiment.replace("\n", "<br />")
+                .replace("{{", "<sup><small><small>")
+                .replace("}}", "</small></small></sup>")
+                .replace("{", "<sub><small><small>")
+                .replace("}", "</small></small></sub>");
     }
-    public String getExperiment(){
+
+    String getExperiment() {
         return experiment;
     }
 
-    public void setObservation(String observation){
-        this.observation=observation;
+    private void setObservation(String observation) {
+        this.observation = observation.replace("\n", "<br />")
+                .replace("{{", "<sup><small><small>")
+                .replace("}}", "</small></small></sup>")
+                .replace("{", "<sub><small><small>")
+                .replace("}", "</small></small></sub>");
     }
-    public String getObservation() {
+
+    String getObservation() {
         return observation;
     }
 
-    public void setConclusion(String conclusion) {
-        this.conclusion = conclusion;
+    private void setConclusion(String conclusion) {
+        this.conclusion = conclusion.replace("\n", "<br />")
+                .replace("{{", "<sup><small><small>")
+                .replace("}}", "</small></small></sup>")
+                .replace("{", "<sub><small><small>")
+                .replace("}", "</small></small></sub>");
     }
 
-    public String getConclusion() {
+    String getConclusion() {
         return conclusion;
     }
 }

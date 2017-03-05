@@ -21,9 +21,10 @@ public class RadicalListActivity extends AppCompatActivity {
         final ListView listView = (ListView) findViewById(R.id.list_display_radical);
         final List<Radicals.Radical> radicals = Radicals.getRadicalDetails();
         List<String> names = new ArrayList<>(radicals.size());
-
+        boolean isAcidic = getIntent().getBooleanExtra("isAcidic", true);
         for(Radicals.Radical r:radicals){
-            names.add(r.name);
+            if(r.isAcidic==isAcidic)
+                names.add(r.name);
         }
 
         ArrayAdapter<String> itemsAdapter =
