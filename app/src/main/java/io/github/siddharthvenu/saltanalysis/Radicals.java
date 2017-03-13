@@ -62,7 +62,7 @@ class Radicals {
             observation.add("The solution turns green with turbidity");
             conclusion.add(formula + " is confirmed. Turbidity is due to the deposition of sulphur");
 
-            experiment.add("Special test for " + formula + ":\nTo the salt, Sodium nitroprusside - Na{2}{{Fe(CN){6}NO}} is added");
+            experiment.add("Special test for " + formula + ":\nTo the salt, Sodium nitroprusside - Na{2}[Fe(CN){6}NO] is added");
             observation.add("Purple colouration");
             conclusion.add(formula + " is confirmed");
 

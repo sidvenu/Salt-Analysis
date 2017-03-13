@@ -12,7 +12,10 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        CardView basicRadical= (CardView) findViewById(R.id.basic_home), acidicRadical= (CardView) findViewById(R.id.acid_home);
+        CardView basicRadical= (CardView) findViewById(R.id.basic_home),
+                acidicRadical= (CardView) findViewById(R.id.acid_home),
+                grpSeparation = (CardView) findViewById(R.id.grp_separation_card);
+
         basicRadical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,6 +26,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(launchNextScreen(true));
+            }
+        });
+        grpSeparation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, GroupSeparationActivity.class));
             }
         });
     }

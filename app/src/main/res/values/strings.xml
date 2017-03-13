@@ -4,4 +4,10 @@
     <string name="observation">Observation</string>
     <string name="conclusion">Conclusion</string>
     <string name="ad_unit_radicalinfo_bottom">ca-app-pub-6396272384624113/9574745587</string>
+    <string name="grp_1_text">To the salt solution, dil.HCl is added and heated</string>
+    <string name="grp_2_text">H{2}S is passed</string>
+    <string name="grp_3_text">H{2}S is boiled off. NH{4}Cl and NH{4}OH are added to make medium alkaline (Check alkalinity using litmus paper)</string>
+    <string name="grp_4_text">H{2}S is passed in alkaline medium</string>
+    <string name="grp_5_text">H{2}S is boiled off and (NH{4}){2}CO{3} is added</string>
+    <string name="grp_6_text">To the filtrate of Group V, Na{2}HPO{4} is added</string>
 </resources>

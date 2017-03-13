@@ -1,6 +1,7 @@
 package io.github.siddharthvenu.saltanalysis;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,10 +23,16 @@ public class RadicalListActivity extends AppCompatActivity {
         final List<Radicals.Radical> radicals = Radicals.getRadicalDetails();
         List<String> names = new ArrayList<>(radicals.size());
         boolean isAcidic = getIntent().getBooleanExtra("isAcidic", true);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setTitle(isAcidic?"Acid Radicals":"Basic Radicals");
+        }
         for(Radicals.Radical r:radicals){
             if(r.isAcidic==isAcidic)
                 names.add(r.name);
         }
+
+
 
         ArrayAdapter<String> itemsAdapter =
                 new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, names);

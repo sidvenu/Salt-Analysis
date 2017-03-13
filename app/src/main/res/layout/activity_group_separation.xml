@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="io.github.siddharthvenu.saltanalysis.GroupSeparationActivity">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GROUP 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <TextView
+        android:id="@+id/grp_1_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:textColor="#454242"
+        tools:text="To the salt solution, dil.HCl is added and heated" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/grp_1_text"
+        android:background="#504d4d" />
+
+    <LinearLayout
+        android:id="@+id/grp_1_ppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_1_text"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#ffffff" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/grp_1_text"
+        android:layout_toEndOf="@id/grp_1_ppt"
+        android:layout_toRightOf="@id/grp_1_ppt"
+        android:background="#504d4d" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GROUP 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <TextView
+        android:id="@+id/grp_2_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_1_text"
+        android:layout_toEndOf="@id/grp_1_ppt"
+        android:layout_toRightOf="@id/grp_1_ppt"
+        android:gravity="center_horizontal"
+        android:textColor="#454242"
+        tools:text="H2S is passed" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/grp_2_text"
+        android:layout_toEndOf="@id/grp_1_ppt"
+        android:layout_toRightOf="@id/grp_1_ppt"
+        android:background="#504d4d" />
+
+    <LinearLayout
+        android:id="@+id/grp_2_ppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_2_text"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/grp_1_ppt"
+        android:layout_toRightOf="@id/grp_1_ppt"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#000000" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#b7c214" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/grp_2_text"
+        android:layout_toEndOf="@id/grp_2_ppt"
+        android:layout_toRightOf="@id/grp_2_ppt"
+        android:background="#504d4d" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GROUP 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <TextView
+        android:id="@+id/grp_3_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_2_text"
+        android:layout_toEndOf="@id/grp_2_ppt"
+        android:layout_toRightOf="@id/grp_2_ppt"
+        android:gravity="center_horizontal"
+        android:textColor="#454242"
+        tools:text="H2S is boiled off..." />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/grp_3_text"
+        android:layout_toEndOf="@id/grp_2_ppt"
+        android:layout_toRightOf="@id/grp_2_ppt"
+        android:background="#504d4d" />
+
+    <LinearLayout
+        android:id="@+id/grp_3_ppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_3_text"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/grp_2_ppt"
+        android:layout_toRightOf="@id/grp_2_ppt"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#ffffff" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#64170d" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/grp_3_text"
+        android:layout_toEndOf="@id/grp_3_ppt"
+        android:layout_toRightOf="@id/grp_3_ppt"
+        android:background="#504d4d" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GROUP 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <TextView
+        android:id="@+id/grp_4_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_3_text"
+        android:layout_toEndOf="@id/grp_3_ppt"
+        android:layout_toRightOf="@id/grp_3_ppt"
+        android:gravity="center_horizontal"
+        android:textColor="#454242"
+        tools:text="H2S is passed alkaline" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/grp_4_text"
+        android:layout_toEndOf="@id/grp_3_ppt"
+        android:layout_toRightOf="@id/grp_3_ppt"
+        android:background="#504d4d" />
+
+    <LinearLayout
+        android:id="@+id/grp_4_ppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_4_text"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/grp_3_ppt"
+        android:layout_toRightOf="@id/grp_3_ppt"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#88795A" />
+        </FrameLayout>
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:background="#000000" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#ffffff" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/grp_4_text"
+        android:layout_toEndOf="@id/grp_4_ppt"
+        android:layout_toRightOf="@id/grp_4_ppt"
+        android:background="#504d4d" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GROUP 5 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <TextView
+        android:id="@+id/grp_5_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_4_text"
+        android:layout_toEndOf="@id/grp_4_ppt"
+        android:layout_toRightOf="@id/grp_4_ppt"
+        android:gravity="center_horizontal"
+        android:textColor="#454242"
+        tools:text="H2S is boiled, (NH4)2CO3 added" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/grp_5_text"
+        android:layout_toEndOf="@id/grp_4_ppt"
+        android:layout_toRightOf="@id/grp_4_ppt"
+        android:background="#504d4d" />
+
+    <LinearLayout
+        android:id="@+id/grp_5_ppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_5_text"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/grp_4_ppt"
+        android:layout_toRightOf="@id/grp_4_ppt"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#ffffff" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/grp_5_text"
+        android:layout_toEndOf="@id/grp_5_ppt"
+        android:layout_toRightOf="@id/grp_5_ppt"
+        android:background="#504d4d" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GROUP 6 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <TextView
+        android:id="@+id/grp_6_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_5_text"
+        android:layout_toEndOf="@id/grp_5_ppt"
+        android:layout_toRightOf="@id/grp_5_ppt"
+        android:gravity="center_horizontal"
+        android:textColor="#454242"
+        tools:text="Filtrate of V grp, Na2HPO4" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/grp_6_text"
+        android:layout_toEndOf="@id/grp_5_ppt"
+        android:layout_toRightOf="@id/grp_5_ppt"
+        android:background="#504d4d" />
+
+    <LinearLayout
+        android:id="@+id/grp_6_ppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/grp_6_text"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/grp_5_ppt"
+        android:layout_toRightOf="@id/grp_5_ppt"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="1dp">
+
+            <Button
+                android:layout_width="29dp"
+                android:layout_height="29dp"
+                android:background="#ffffff" />
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

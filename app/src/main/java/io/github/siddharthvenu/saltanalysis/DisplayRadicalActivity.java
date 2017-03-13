@@ -33,6 +33,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("9DE01AF95F35E03D3796E01505E5FFD4")
+                .addTestDevice("FE818379EBC237735090013093B3F9A2")
                 .build();
         adView.loadAd(request);
         adView.setAdListener(new AdListener() {
