@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="io.github.siddharthvenu.saltanalysis">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/chemical"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".HomeActivity">
@@ -17,11 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RadicalListActivity" />
-        <activity android:name=".DisplayRadicalActivity" />
+        <activity
+            android:name=".RadicalListActivity"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.TranslucentActionBar"
+            tools:targetApi="jelly_bean" />
+        <activity
+            android:name=".DisplayRadicalActivity"
+            android:parentActivityName=".HomeActivity"
+            tools:targetApi="jelly_bean" />
         <activity
             android:name=".GroupSeparationActivity"
-            android:screenOrientation="sensorLandscape" />
+            android:parentActivityName=".HomeActivity"
+            android:screenOrientation="sensorLandscape"
+            tools:targetApi="jelly_bean" />
     </application>
 
 </manifest>

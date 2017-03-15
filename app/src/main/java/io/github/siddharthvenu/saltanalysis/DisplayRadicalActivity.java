@@ -40,6 +40,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             @Override
             public void onAdFailedToLoad(int i) {
                 super.onAdFailedToLoad(i);
+                Log.v("HAHA", "ad failed to load");
                 adView.setVisibility(View.GONE);
             }
 
