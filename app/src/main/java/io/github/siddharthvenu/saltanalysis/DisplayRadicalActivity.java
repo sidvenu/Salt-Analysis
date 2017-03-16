@@ -63,10 +63,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             ActionBar actionBar = getSupportActionBar();
             if(actionBar!=null)
                 actionBar.setTitle(Html.fromHtml(stringChangeHtml(radicalName+" - "+radical.formula)));
-            ArrayList<Experiment> experiments = new ArrayList<>();
-            for(int i=0;i<radical.experiment.size();i++){
-                experiments.add(i, new Experiment(radical.experiment.get(i), radical.observation.get(i), radical.conclusion.get(i)));
-            }
+            ArrayList<Experiment> experiments = radical.experiment;
             ListView listView = (ListView) findViewById(R.id.radical_experiments_list);
             listView.setAdapter(new ExperimentAdapter(experiments, this));
         }

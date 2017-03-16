@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="vertical"
+    tools:context="io.github.siddharthvenu.saltanalysis.LongProcedureActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/base_choice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/acid_choice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dry Tests:" />
+
+        <LinearLayout
+            android:id="@+id/dry_tests_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/experiment"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
+
+            <!--View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="?android:attr/dividerVertical" /-->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/observation"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
+
+            <!--View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="?android:attr/dividerVertical" /-->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/conclusion"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
+        </LinearLayout>
+
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewDryTests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/ad_unit_radicalinfo_bottom" />
+
+        <!--Here goes all the dry tests-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wet Tests:" />
+
+        <LinearLayout
+            android:id="@+id/wet_tests_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/experiment"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
+
+            <!--View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="?android:attr/dividerVertical" /-->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/observation"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
+
+            <!--View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="3dp"
+                android:background="?android:attr/dividerVertical" /-->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:fontFamily="sans-serif-smallcaps"
+                android:gravity="center"
+                android:text="@string/conclusion"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
+        </LinearLayout>
+
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewWetTests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="@string/ad_unit_radicalinfo_bottom" />
+
+    </LinearLayout>
+</ScrollView>

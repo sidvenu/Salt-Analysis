@@ -3,14 +3,33 @@ package io.github.siddharthvenu.saltanalysis;
 /**
  * Created by siddh on 02-03-2017.
  */
-
 class Experiment {
     private String experiment, observation, conclusion;
+    private String tag=null;
+    private boolean isDryTest;
 
-    Experiment(String experiment, String observation, String conclusion) {
+    Experiment(String experiment, String observation, String conclusion, String tag, boolean isDryTest) {
         setExperiment(experiment);
         setObservation(observation);
         setConclusion(conclusion);
+        this.isDryTest = isDryTest;
+        boolean isAllowed = false;
+        String[] allowedTags = {"HCL", "H2SO4", "HEAT", "AGNO3", "SPL", "CONTINUE"};
+        for (String x : allowedTags) {
+            if (x.equals(tag)) {
+                isAllowed = true;
+                break;
+            }
+        }
+        if (isAllowed)
+            this.tag = tag;
+        else throw new IllegalArgumentException("ExperimentCollection tag illegal");
+    }
+
+    Experiment(String experiment, String observation, String conclusion) {
+        this.experiment = experiment;
+        this.observation = observation;
+        this.conclusion = conclusion;
     }
 
     private void setExperiment(String experiment) {
@@ -47,5 +66,12 @@ class Experiment {
 
     String getConclusion() {
         return conclusion;
+    }
+
+    String getTag(){
+        return tag;
+    }
+    boolean isDryTest(){
+        return isDryTest;
     }
 }
