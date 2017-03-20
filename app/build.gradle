@@ -2,18 +2,56 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
-    defaultConfig {
-        applicationId "io.github.siddharthvenu.saltanalysis"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    def versionPropsFile = file('version.properties')
+    def code = 1
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
+
+        versionProps.load(new FileInputStream(versionPropsFile))
+        List<String> runTasks = gradle.startParameter.getTaskNames();
+        def value = 0
+        for (String item : runTasks)
+            if ( item.contains("assembleRelease")) {
+                value = 1;
+            }
+        code = versionProps['VERSION_CODE'].toInteger() + value
+
+        versionProps['VERSION_CODE']=code.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        defaultConfig {
+            applicationId "io.github.siddharthvenu.saltanalysis"
+            minSdkVersion 15
+            targetSdkVersion 25
+            versionCode code
+            versionName "1.0 Alpha"
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        }
+    }
+    else {
+        throw new FileNotFoundException("Could not read version.properties!")
     }
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig getSigningConfig()
+            def str_ver
+            if((int)(code/100)!=0){
+                str_ver = String.valueOf(code)
+            } else if((int)(code/10)!=0){
+                str_ver = "0"+String.valueOf(code)
+            } else{
+                str_ver = "00"+String.valueOf(code)
+            }
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(output.outputFile.parent,
+                            output.outputFile.name.replace(output.outputFile.name, "alpha_test_"+str_ver+".apk")
+                    )
+                }
+            }
         }
     }
 }

@@ -8,11 +8,11 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@mipmap/chemical"
+        android:icon="@mipmap/ic_material_chemical"
         android:label="@string/app_name"
-        android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup">
         <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,11 @@
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="sensorLandscape"
             tools:targetApi="jelly_bean" />
-        <activity android:name=".LongProcedureActivity"></activity>
+        <activity
+            android:name=".LongProcedureActivity"
+            android:label="Long Procedure"
+            android:parentActivityName=".HomeActivity"
+            tools:targetApi="jelly_bean"/>
     </application>
 
 </manifest>

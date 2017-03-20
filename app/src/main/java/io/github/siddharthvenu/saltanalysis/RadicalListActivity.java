@@ -13,8 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.manuelpeinado.fadingactionbar.extras.actionbarcompat.FadingActionBarHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +34,6 @@ public class RadicalListActivity extends AppCompatActivity {
                 .contentLayout(R.layout.activity_radical_list);
 
         setContentView(helper.createView(this));
-
         helper.initActionBar(this);
         final List<Radicals.Radical> radicals = Radicals.getRadicalDetails();
         List<String> names = new ArrayList<>(radicals.size());

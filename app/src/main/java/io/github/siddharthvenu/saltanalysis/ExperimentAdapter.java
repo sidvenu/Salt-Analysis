@@ -3,6 +3,7 @@ package io.github.siddharthvenu.saltanalysis;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static io.github.siddharthvenu.saltanalysis.StringUtilities.formatString;
 /**
  * Created by siddh on 02-03-2017.
  */
@@ -38,7 +40,7 @@ class ExperimentAdapter extends ArrayAdapter<Experiment> {
 
         if(TextUtils.isEmpty(curExpt.getObservation())&&TextUtils.isEmpty(curExpt.getConclusion())){
             linearLayout.setVisibility(View.GONE);
-            generalText.setText(Html.fromHtml(curExpt.getExperiment()));
+            generalText.setText(formatString(curExpt.getExperiment()));
             generalText.setVisibility(View.VISIBLE);
         }
         else {
@@ -46,13 +48,13 @@ class ExperimentAdapter extends ArrayAdapter<Experiment> {
             generalText.setVisibility(View.GONE);
 
             TextView textView = (TextView) convertView.findViewById(R.id.experiment_text_view);
-            textView.setText(Html.fromHtml(curExpt.getExperiment()));
+            textView.setText(formatString(curExpt.getExperiment()));
 
             textView = (TextView) convertView.findViewById(R.id.observation_text_view);
-            textView.setText(Html.fromHtml(curExpt.getObservation()));
+            textView.setText(formatString(curExpt.getObservation()));
 
             textView = (TextView) convertView.findViewById(R.id.conclusion_text_view);
-            textView.setText(Html.fromHtml(curExpt.getConclusion()));
+            textView.setText(formatString(curExpt.getConclusion()));
         }
         return convertView;
     }

@@ -60,11 +60,11 @@
     </LinearLayout>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+        android:id="@+id/adViewDisplayRadical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/ad_unit_radicalinfo_bottom"/>
+        ads:adUnitId="@string/ad_unit_radical_info_bottom"/>
     <ListView
         android:id="@+id/radical_experiments_list"
         android:layout_width="match_parent"

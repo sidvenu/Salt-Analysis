@@ -15,7 +15,7 @@ class Radicals {
 
     static class Radical {
         String name, formula;
-        boolean isAcidic;
+        boolean isAcidic, isDrySplPresent = false, isWetSplPresent = false;
         ArrayList<Experiment> experiment;
 
         Radical(String name, String formula, boolean isAcidic, ArrayList<Experiment> experiment) {
@@ -23,6 +23,17 @@ class Radicals {
             this.formula = formula;
             this.isAcidic = isAcidic;
             this.experiment = experiment;
+
+            for (Experiment e : experiment) {
+                if (e.getTag()!=null&&e.getTag().equals("SPL")) {
+                    if (e.isDryTest())
+                        isDrySplPresent = true;
+                    else isWetSplPresent = true;
+
+                    if(isDrySplPresent&&isWetSplPresent)
+                        break;
+                }
+            }
         }
     }
 
@@ -113,7 +124,7 @@ class Radicals {
             experimentList.add(new Experiment("Dry Test:\nTo the salt, dil.HCl is added",
                     "Pale brown fumes",
                     "Maybe " + formula,
-                    "SPL", true));
+                    "HCL", true));
 
             experimentList.add(new Experiment("Starch Iodide paper is held at the mouth of the test tube",
                     "Turns blue",
@@ -536,7 +547,7 @@ class Radicals {
 
             experimentList.add(new Experiment("The precipitate of ZnS is dissolved in few drops of conc.HNO{3}. A filter paper is dipped" +
                     " in Cobalt Nitrate is soaked in the test solution and shown into the flame",
-                    "Green edged ask",
+                    "Green edged ash",
                     "Green edged ash due to the formation of CoZnO{2} (Rinman's green)"));
 
 
