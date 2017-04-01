@@ -1,54 +1,54 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 'android-O'
+    buildToolsVersion '26.0.0-rc1'
 
     def versionPropsFile = file('version.properties')
     def code = 1
     if (versionPropsFile.canRead()) {
-        def Properties versionProps = new Properties()
+        Properties versionProps = new Properties()
 
         versionProps.load(new FileInputStream(versionPropsFile))
         List<String> runTasks = gradle.startParameter.getTaskNames();
         def value = 0
         for (String item : runTasks)
-            if ( item.contains("assembleRelease")) {
-                value = 1;
+            if (item.contains("assembleRelease")) {
+                value = 1
             }
         code = versionProps['VERSION_CODE'].toInteger() + value
 
-        versionProps['VERSION_CODE']=code.toString()
+        versionProps['VERSION_CODE'] = code.toString()
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
             applicationId "io.github.siddharthvenu.saltanalysis"
             minSdkVersion 15
-            targetSdkVersion 25
+            targetSdkVersion 'O'
             versionCode code
             versionName "1.0 Alpha"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
-    }
-    else {
+    } else {
         throw new FileNotFoundException("Could not read version.properties!")
     }
     buildTypes {
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig getSigningConfig()
             def str_ver
-            if((int)(code/100)!=0){
+            if ((int) (code / 100) != 0) {
                 str_ver = String.valueOf(code)
-            } else if((int)(code/10)!=0){
-                str_ver = "0"+String.valueOf(code)
-            } else{
-                str_ver = "00"+String.valueOf(code)
+            } else if ((int) (code / 10) != 0) {
+                str_ver = "0" + String.valueOf(code)
+            } else {
+                str_ver = "00" + String.valueOf(code)
             }
             applicationVariants.all { variant ->
                 variant.outputs.each { output ->
                     output.outputFile = new File(output.outputFile.parent,
-                            output.outputFile.name.replace(output.outputFile.name, "alpha_test_"+str_ver+".apk")
+                            output.outputFile.name.replace(output.outputFile.name, "alpha_test_" + str_ver + ".apk")
                     )
                 }
             }
@@ -60,14 +60,18 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:cardview-v7:25.3.0'
-    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar-abc:3.1.2'
-    compile 'com.jaredrummler:material-spinner:1.1.0'
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'com.google.firebase:firebase-ads:10.0.1'
+    compile 'com.jaredrummler:material-spinner:1.1.0'
+    compile 'com.google.code.findbugs:jsr305:2.0.1'
+
     testCompile 'junit:junit:4.12'
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
 }
 
 apply plugin: 'com.google.gms.google-services'

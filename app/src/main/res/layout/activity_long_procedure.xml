@@ -46,14 +46,14 @@
 
         <!--Here goes all the dry tests-->
 
-        <com.google.android.gms.ads.AdView
+        <!--com.google.android.gms.ads.AdView
             android:id="@+id/adViewDryTests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:visibility="gone"
             ads:adSize="SMART_BANNER"
-            ads:adUnitId="@string/ad_unit_long_procedure_dry_tests" />
+            ads:adUnitId="@string/ad_unit_long_procedure_dry_tests" /-->
 
         <TextView
             android:layout_width="wrap_content"

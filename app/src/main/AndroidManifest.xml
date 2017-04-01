@@ -23,11 +23,13 @@
         <activity
             android:name=".RadicalListActivity"
             android:parentActivityName=".HomeActivity"
+            android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.TranslucentActionBar"
             tools:targetApi="jelly_bean" />
         <activity
             android:name=".DisplayRadicalActivity"
-            android:parentActivityName=".HomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:parentActivityName=".RadicalListActivity"
             tools:targetApi="jelly_bean" />
         <activity
             android:name=".GroupSeparationActivity"
@@ -37,8 +39,7 @@
         <activity
             android:name=".LongProcedureActivity"
             android:label="Long Procedure"
-            android:parentActivityName=".HomeActivity"
-            tools:targetApi="jelly_bean"/>
+            tools:targetApi="jelly_bean" />
     </application>
 
 </manifest>

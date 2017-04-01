@@ -27,6 +27,7 @@ public class GroupSeparationActivity extends AppCompatActivity {
         if (actionBar != null)
             actionBar.hide();
 
+
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int dpPrecipitateElement = (int) ((displayMetrics.widthPixels - 45 * displayMetrics.density) / 6.0);
         LinearLayout precipitate = (LinearLayout) findViewById(R.id.grp_1_ppt);

@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -52,6 +54,7 @@ public class RadicalListActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(isAcidic ? "Acid Radicals" : "Basic Radicals");
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
         final ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(itemsAdapter);
@@ -92,5 +95,17 @@ public class RadicalListActivity extends AppCompatActivity {
         });
         */
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

@@ -417,7 +417,7 @@ class Radicals {
                     "Presence of Lead"));
 
 
-            experimentList.add(new Experiment("To the 2nd part, Potassium Iodide - KI is added (heat and cool to see the yellow spangles",
+            experimentList.add(new Experiment("To the 2nd part, Potassium Iodide - KI is added (heat and cool to see the yellow spangles)",
                     "Golden yellow spangles",
                     formula + " is confirmed"));
 

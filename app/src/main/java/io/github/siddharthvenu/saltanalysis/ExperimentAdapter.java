@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static io.github.siddharthvenu.saltanalysis.StringUtilities.formatString;
+import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.formatString;
 /**
  * Created by siddh on 02-03-2017.
  */
