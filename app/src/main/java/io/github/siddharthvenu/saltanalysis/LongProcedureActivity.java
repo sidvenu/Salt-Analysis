@@ -1,16 +1,13 @@
 package io.github.siddharthvenu.saltanalysis;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.provider.Settings;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +24,6 @@ import java.util.List;
 
 
 import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.formatString;
-import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.getNewAdInstance;
 
 
 public class LongProcedureActivity extends AppCompatActivity {
@@ -40,12 +36,46 @@ public class LongProcedureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_long_procedure);
+        CardView groupSeparationTransit = (CardView) findViewById(R.id.group_separation_transit_button);
+        groupSeparationTransit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LongProcedureActivity.this,GroupSeparationActivity.class).putExtra("basic_radical_name",currentBasicRadical.name));
+            }
+        });
+        View whitespace = findViewById(R.id.white_space);
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) whitespace.getLayoutParams();
+        groupSeparationTransit.measure(0,0);
+        params.height=groupSeparationTransit.getMeasuredHeight();
+        whitespace.setLayoutParams(params);
+
+        final AdView adView = (AdView)findViewById(R.id.adViewDryTests);
+        adView.setVisibility(View.GONE);
+        AdRequest request = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                adView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+            }
+        });
+        adView.loadAd(request);
+
+
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N_MR1) {
+        /*if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N_MR1) {
             Log.v("HAHA", "Reached inside");
             try {
                 ((LinearLayout) findViewById(R.id.long_procedure_root))
@@ -53,7 +83,7 @@ public class LongProcedureActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }*/
         List<Radicals.Radical> radicals = Radicals.getRadicalDetails();
         List<String> acidNames, basicNames;
 
@@ -110,7 +140,6 @@ public class LongProcedureActivity extends AppCompatActivity {
     }
 
     void updateLongProcedure(boolean isAcidUpdated) {
-        long time = System.currentTimeMillis();
         if (isAcidUpdated) {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.dry_tests_long_procedure);
             linearLayout.removeAllViews();
@@ -362,7 +391,7 @@ public class LongProcedureActivity extends AppCompatActivity {
 
                 if (ProjectUtilities.isGeneralExpt(e)) {
                     v.findViewById(R.id.expt_linear_layout).setVisibility(View.GONE);
-                    TextView generalText = v.findViewById(R.id.general_text_view);
+                    TextView generalText =  v.findViewById(R.id.general_text_view);
                     generalText.setText(formatString(e.getExperiment()));
                     generalText.setVisibility(View.VISIBLE);
                     linearLayout.addView(v, curIndex++);
@@ -377,15 +406,14 @@ public class LongProcedureActivity extends AppCompatActivity {
                 linearLayout.addView(v, curIndex++);
             }
         }
-        showDialog(System.currentTimeMillis() - time);
     }
 
-    void showDialog(long delTime) {
+    /*void showDialog(long delTime) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delta Time");
         builder.setMessage("Operation completed in " + String.valueOf(delTime) + "ms");
         builder.create().show();
-    }
+    }*/
 
 
     @Override

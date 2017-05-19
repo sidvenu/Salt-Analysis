@@ -23,6 +23,12 @@ public class GroupSeparationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_separation);
+
+        String basicRadical = getIntent().getStringExtra("basic_radical_name");
+        if(!TextUtils.isEmpty(basicRadical)){
+            //TODO: Display only the current radical as present, rest as absent
+        }
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
             actionBar.hide();

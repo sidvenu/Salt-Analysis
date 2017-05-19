@@ -1,13 +1,10 @@
 package io.github.siddharthvenu.saltanalysis;
 
 import android.content.res.Configuration;
-import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,6 +14,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
@@ -28,7 +28,6 @@ import java.util.Map;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.formatString;
-import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.getNewAdInstance;
 
 public class DisplayRadicalActivity extends AppCompatActivity {
 
@@ -83,6 +82,25 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             v.put("Cobalt", "MRELKbMFF_E");
         }
         setContentView(R.layout.activity_display_radical);
+        AdRequest request = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        final AdView adView = (AdView) findViewById(R.id.adViewDisplayRadical);
+        adView.setVisibility(View.GONE);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int i) {
+                super.onAdFailedToLoad(i);
+                adView.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+            }
+        });
+        adView.loadAd(request);
 
         player = (YouTubePlayerFragment) getFragmentManager().findFragmentById(R.id.youtube_player_fragment);
         player.initialize(youtubeDevKey, new YouTubePlayer.OnInitializedListener() {
@@ -106,21 +124,20 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                         .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                         .hide(player)
                         .commit();
-                youTubeInitializationResult.getErrorDialog(DisplayRadicalActivity.this,0).show();
+                youTubeInitializationResult.getErrorDialog(DisplayRadicalActivity.this, 0).show();
             }
         });
 
         radicalName = getIntent().getStringExtra("radical");
-
-        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N_MR1) {
+        /*if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N_MR1) {
             Log.v("HAHA", "Reached inside");
             try {
                 ((LinearLayout) findViewById(R.id.display_radical_root))
-                        .addView(getNewAdInstance(this, getString(R.string.ad_unit_long_procedure_dry_tests)), 1);
+                        .addView(getNewAdInstance(this, getString(R.string.ad_unit_radical_info_bottom)), 1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }*/
         Log.v("HAHA", radicalName);
         List<Radicals.Radical> radicalList = Radicals.getRadicalDetails();
         Radicals.Radical radical = null;
@@ -142,7 +159,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             for (int position = 0; position < experiments.size(); position++) {
                 View convertView = LayoutInflater.from(this).inflate(R.layout.experiment_item, rootLayout, false);
 
-                LinearLayout linearLayout =  convertView.findViewById(R.id.expt_linear_layout);
+                LinearLayout linearLayout = convertView.findViewById(R.id.expt_linear_layout);
                 TextView generalText = convertView.findViewById((R.id.general_text_view));
 
                 Experiment curExpt = experiments.get(position);
@@ -169,13 +186,6 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                 rootLayout.addView(convertView);
             }
         }
-
-    }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-
 
     }
 

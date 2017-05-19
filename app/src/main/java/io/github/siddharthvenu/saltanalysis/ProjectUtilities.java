@@ -78,11 +78,11 @@ class ProjectUtilities {
     }
 
     static AdView getNewAdInstance(Context context, String adUnitId) throws IllegalAccessException, InstantiationException {
-        final AdView adView = AdView.class.newInstance();
+        final AdView adView = new AdView(context);
         adView.setVisibility(View.GONE);
         adView.setAdSize(AdSize.SMART_BANNER);
         adView.setAdUnitId(adUnitId);
-
+        Log.v("HAHA","LOL");
         @SuppressLint("HardwareIds")
         String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
 
