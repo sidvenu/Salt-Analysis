@@ -53,7 +53,7 @@ class ProjectUtilities {
         return Html.fromHtml(stringChangeHtml(str));
     }
 
-    private static String md5(final String s) {
+    static String md5(final String s) {
         try {
             // Create MD5 Hash
             MessageDigest digest = java.security.MessageDigest
@@ -76,7 +76,7 @@ class ProjectUtilities {
         }
         return "";
     }
-
+/*
     static AdView getNewAdInstance(Context context, String adUnitId) throws IllegalAccessException, InstantiationException {
         final AdView adView = new AdView(context);
         adView.setVisibility(View.GONE);
@@ -110,7 +110,7 @@ class ProjectUtilities {
         });
         return adView;
     }
-
+*/
     static boolean isGeneralExpt(Experiment e) {
         return TextUtils.isEmpty(e.getObservation()) && TextUtils.isEmpty(e.getConclusion());
     }

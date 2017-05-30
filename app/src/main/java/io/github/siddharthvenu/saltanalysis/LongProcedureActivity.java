@@ -1,9 +1,11 @@
 package io.github.siddharthvenu.saltanalysis;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -58,8 +60,12 @@ public class LongProcedureActivity extends AppCompatActivity {
 
         final AdView adView = (AdView)findViewById(R.id.adViewDryTests);
         adView.setVisibility(View.GONE);
+
+        @SuppressLint("HardwareIds")
+        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
                 .build();
         adView.setAdListener(new AdListener() {
             @Override

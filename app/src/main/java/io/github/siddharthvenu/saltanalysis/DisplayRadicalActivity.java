@@ -1,6 +1,8 @@
 package io.github.siddharthvenu.saltanalysis;
 
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
+import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -82,8 +84,11 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             v.put("Cobalt", "MRELKbMFF_E");
         }
         setContentView(R.layout.activity_display_radical);
+        @SuppressLint("HardwareIds")
+        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
                 .build();
         final AdView adView = (AdView) findViewById(R.id.adViewDisplayRadical);
         adView.setVisibility(View.GONE);
