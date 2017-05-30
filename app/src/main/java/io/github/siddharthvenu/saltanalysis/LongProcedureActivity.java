@@ -36,6 +36,13 @@ public class LongProcedureActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_long_procedure);
+
+        /* set typeface for headers */
+        Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/fifawelcome.ttf");
+        ((TextView) findViewById(R.id.dry_tests_header)).setTypeface(tf);
+        ((TextView) findViewById(R.id.wet_tests_header)).setTypeface(tf);
+
+
         CardView groupSeparationTransit = (CardView) findViewById(R.id.group_separation_transit_button);
         groupSeparationTransit.setOnClickListener(new View.OnClickListener() {
             @Override
