@@ -159,8 +159,8 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             for (int position = 0; position < experiments.size(); position++) {
                 View convertView = LayoutInflater.from(this).inflate(R.layout.experiment_item, rootLayout, false);
 
-                LinearLayout linearLayout = convertView.findViewById(R.id.expt_linear_layout);
-                TextView generalText = convertView.findViewById((R.id.general_text_view));
+                LinearLayout linearLayout = (LinearLayout) convertView.findViewById(R.id.expt_linear_layout);
+                TextView generalText = (TextView) convertView.findViewById((R.id.general_text_view));
 
                 Experiment curExpt = experiments.get(position);
 
@@ -172,13 +172,13 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                     linearLayout.setVisibility(View.VISIBLE);
                     generalText.setVisibility(View.GONE);
 
-                    TextView textView = convertView.findViewById(R.id.experiment_text_view);
+                    TextView textView = (TextView) convertView.findViewById(R.id.experiment_text_view);
                     textView.setText(formatString(curExpt.getExperiment()));
 
-                    textView = convertView.findViewById(R.id.observation_text_view);
+                    textView = (TextView) convertView.findViewById(R.id.observation_text_view);
                     textView.setText(formatString(curExpt.getObservation()));
 
-                    textView = convertView.findViewById(R.id.conclusion_text_view);
+                    textView = (TextView) convertView.findViewById(R.id.conclusion_text_view);
                     textView.setText(formatString(curExpt.getConclusion()));
                 }
                 rootLayout.addView(convertView);

@@ -391,7 +391,7 @@ public class LongProcedureActivity extends AppCompatActivity {
 
                 if (ProjectUtilities.isGeneralExpt(e)) {
                     v.findViewById(R.id.expt_linear_layout).setVisibility(View.GONE);
-                    TextView generalText =  v.findViewById(R.id.general_text_view);
+                    TextView generalText = (TextView) v.findViewById(R.id.general_text_view);
                     generalText.setText(formatString(e.getExperiment()));
                     generalText.setVisibility(View.VISIBLE);
                     linearLayout.addView(v, curIndex++);
