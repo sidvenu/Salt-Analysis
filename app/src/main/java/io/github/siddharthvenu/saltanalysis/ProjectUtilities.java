@@ -1,18 +1,8 @@
 package io.github.siddharthvenu.saltanalysis;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.provider.Settings;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -76,41 +66,42 @@ class ProjectUtilities {
         }
         return "";
     }
-/*
-    static AdView getNewAdInstance(Context context, String adUnitId) throws IllegalAccessException, InstantiationException {
-        final AdView adView = new AdView(context);
-        adView.setVisibility(View.GONE);
-        adView.setAdSize(AdSize.SMART_BANNER);
-        adView.setAdUnitId(adUnitId);
-        Log.v("HAHA","LOL");
-        @SuppressLint("HardwareIds")
-        String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        AdRequest.Builder requestBuilder = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("9DE01AF95F35E03D3796E01505E5FFD4")
-                .addTestDevice("FE818379EBC237735090013093B3F9A2");
-        requestBuilder.addTestDevice(ProjectUtilities.md5(android_id).toUpperCase());
+    /*
+        static AdView getNewAdInstance(Context context, String adUnitId) throws IllegalAccessException, InstantiationException {
+            final AdView adView = new AdView(context);
+            adView.setVisibility(View.GONE);
+            adView.setAdSize(AdSize.SMART_BANNER);
+            adView.setAdUnitId(adUnitId);
+            Log.v("HAHA","LOL");
+            @SuppressLint("HardwareIds")
+            String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        AdRequest request = requestBuilder.build();
-        adView.loadAd(request);
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdFailedToLoad(int i) {
-                super.onAdFailedToLoad(i);
-                Log.v("HAHA", "ad failed to load");
-                adView.setVisibility(View.GONE);
-            }
+            AdRequest.Builder requestBuilder = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                    .addTestDevice("9DE01AF95F35E03D3796E01505E5FFD4")
+                    .addTestDevice("FE818379EBC237735090013093B3F9A2");
+            requestBuilder.addTestDevice(ProjectUtilities.md5(android_id).toUpperCase());
 
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                adView.setVisibility(View.VISIBLE);
-            }
-        });
-        return adView;
-    }
-*/
+            AdRequest request = requestBuilder.build();
+            adView.loadAd(request);
+            adView.setAdListener(new AdListener() {
+                @Override
+                public void onAdFailedToLoad(int i) {
+                    super.onAdFailedToLoad(i);
+                    Log.v("HAHA", "ad failed to load");
+                    adView.setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAdLoaded() {
+                    super.onAdLoaded();
+                    adView.setVisibility(View.VISIBLE);
+                }
+            });
+            return adView;
+        }
+    */
     static boolean isGeneralExpt(Experiment e) {
         return TextUtils.isEmpty(e.getObservation()) && TextUtils.isEmpty(e.getConclusion());
     }

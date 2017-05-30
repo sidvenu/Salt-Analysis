@@ -50,11 +50,12 @@
             android:textColor="#454242" />
 
     </LinearLayout>
+
     <TextView
         android:id="@+id/general_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textStyle="bold|italic"
-        android:textColor="#514c4c" />
+        android:textColor="#514c4c"
+        android:textStyle="bold|italic" />
 </RelativeLayout>

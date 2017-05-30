@@ -5,7 +5,7 @@ package io.github.siddharthvenu.saltanalysis;
  */
 class Experiment {
     private String experiment, observation, conclusion;
-    private String tag=null;
+    private String tag = null;
     private boolean isDryTest;
 
     Experiment(String experiment, String observation, String conclusion, String tag, boolean isDryTest) {
@@ -32,20 +32,12 @@ class Experiment {
         this.conclusion = conclusion;
     }
 
-    private void setExperiment(String experiment) {
-        this.experiment = experiment.replace("\n", "<br />")
-                .replace("{{", "<sup><small><small>")
-                .replace("}}", "</small></small></sup>")
-                .replace("{", "<sub><small><small>")
-                .replace("}", "</small></small></sub>");
-    }
-
     String getExperiment() {
         return experiment;
     }
 
-    private void setObservation(String observation) {
-        this.observation = observation.replace("\n", "<br />")
+    private void setExperiment(String experiment) {
+        this.experiment = experiment.replace("\n", "<br />")
                 .replace("{{", "<sup><small><small>")
                 .replace("}}", "</small></small></sup>")
                 .replace("{", "<sub><small><small>")
@@ -56,8 +48,8 @@ class Experiment {
         return observation;
     }
 
-    private void setConclusion(String conclusion) {
-        this.conclusion = conclusion.replace("\n", "<br />")
+    private void setObservation(String observation) {
+        this.observation = observation.replace("\n", "<br />")
                 .replace("{{", "<sup><small><small>")
                 .replace("}}", "</small></small></sup>")
                 .replace("{", "<sub><small><small>")
@@ -68,10 +60,19 @@ class Experiment {
         return conclusion;
     }
 
-    String getTag(){
+    private void setConclusion(String conclusion) {
+        this.conclusion = conclusion.replace("\n", "<br />")
+                .replace("{{", "<sup><small><small>")
+                .replace("}}", "</small></small></sup>")
+                .replace("{", "<sub><small><small>")
+                .replace("}", "</small></small></sub>");
+    }
+
+    String getTag() {
         return tag;
     }
-    boolean isDryTest(){
+
+    boolean isDryTest() {
         return isDryTest;
     }
 }

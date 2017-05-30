@@ -2,11 +2,11 @@ package io.github.siddharthvenu.saltanalysis;
 
 import android.annotation.SuppressLint;
 import android.content.res.Configuration;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;

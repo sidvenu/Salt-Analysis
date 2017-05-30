@@ -21,16 +21,6 @@ import java.util.Set;
 
 public class GroupSeparationActivity extends AppCompatActivity {
 
-    private class radicalInfo {
-        String msg;
-        int id;
-
-        radicalInfo(String msg, int id) {
-            this.msg = msg;
-            this.id = id;
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +104,7 @@ public class GroupSeparationActivity extends AppCompatActivity {
         precipitate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.v("Touch event","detect");
+                Log.v("Touch event", "detect");
                 final Snackbar sb = Snackbar.make(findViewById(R.id.parent_group_separation), formatText(msg), Snackbar.LENGTH_INDEFINITE);
                 sb.show();
                 sb.getView().setOnClickListener(new View.OnClickListener() {
@@ -129,5 +119,15 @@ public class GroupSeparationActivity extends AppCompatActivity {
 
     Spanned formatText(String s) {
         return Html.fromHtml(s.replace("{", "<sub><small><small>").replace("}", "</small></small></sub>").replace("\n", "<br />"));
+    }
+
+    private class radicalInfo {
+        String msg;
+        int id;
+
+        radicalInfo(String msg, int id) {
+            this.msg = msg;
+            this.id = id;
+        }
     }
 }

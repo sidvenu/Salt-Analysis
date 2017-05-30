@@ -3,69 +3,11 @@ package io.github.siddharthvenu.saltanalysis;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.github.siddharthvenu.saltanalysis.R.string.conclusion;
-import static io.github.siddharthvenu.saltanalysis.R.string.experiment;
-import static io.github.siddharthvenu.saltanalysis.R.string.observation;
-
 /**
  * Created by siddh on 27-02-2017.
  */
 
 class Radicals {
-
-    static class Radical {
-        String name, formula;
-        boolean isAcidic, isDrySplPresent = false, isWetSplPresent = false;
-        ArrayList<Experiment> experiment;
-
-        Radical(String name, String formula, boolean isAcidic, ArrayList<Experiment> experiment) {
-            this.name = name;
-            this.formula = formula;
-            this.isAcidic = isAcidic;
-            this.experiment = experiment;
-
-            for (Experiment e : experiment) {
-                if (e.getTag()!=null&&e.getTag().equals("SPL")) {
-                    if (e.isDryTest())
-                        isDrySplPresent = true;
-                    else isWetSplPresent = true;
-
-                    if(isDrySplPresent&&isWetSplPresent)
-                        break;
-                }
-            }
-        }
-    }
-
-    /*static class Experiment {
-        String experiment, observation, conclusion;
-        String tag=null;
-        String allowedTags[] = {"HCL", "H2SO4", "HEAT", "AGNO3", "SPL", "CONTINUE"};
-        boolean isDryTest;
-
-        Experiment(String experiment, String observation, String conclusion, String tag, boolean isDryTest) {
-            this.experiment = experiment;
-            this.observation = observation;
-            this.conclusion = conclusion;
-            this.isDryTest = isDryTest;
-            boolean isAllowed = false;
-            for (String x : allowedTags) {
-                if (x.equals(tag)) {
-                    isAllowed = true;
-                    break;
-                }
-            }
-            if (isAllowed)
-                this.tag = tag;
-            else throw new IllegalArgumentException("Experiment tag illegal");
-        }
-
-        Experiment(String experiment, String observation, String conclusion) {
-            this.experiment = experiment;
-            this.observation = observation;
-            this.conclusion = conclusion;
-        }
-    }*/
 
     static List<Radical> getRadicalDetails() {
 
@@ -713,5 +655,59 @@ class Radicals {
         }
         return listRadical;
 
+    }
+
+    /*static class Experiment {
+        String experiment, observation, conclusion;
+        String tag=null;
+        String allowedTags[] = {"HCL", "H2SO4", "HEAT", "AGNO3", "SPL", "CONTINUE"};
+        boolean isDryTest;
+
+        Experiment(String experiment, String observation, String conclusion, String tag, boolean isDryTest) {
+            this.experiment = experiment;
+            this.observation = observation;
+            this.conclusion = conclusion;
+            this.isDryTest = isDryTest;
+            boolean isAllowed = false;
+            for (String x : allowedTags) {
+                if (x.equals(tag)) {
+                    isAllowed = true;
+                    break;
+                }
+            }
+            if (isAllowed)
+                this.tag = tag;
+            else throw new IllegalArgumentException("Experiment tag illegal");
+        }
+
+        Experiment(String experiment, String observation, String conclusion) {
+            this.experiment = experiment;
+            this.observation = observation;
+            this.conclusion = conclusion;
+        }
+    }*/
+
+    static class Radical {
+        String name, formula;
+        boolean isAcidic, isDrySplPresent = false, isWetSplPresent = false;
+        ArrayList<Experiment> experiment;
+
+        Radical(String name, String formula, boolean isAcidic, ArrayList<Experiment> experiment) {
+            this.name = name;
+            this.formula = formula;
+            this.isAcidic = isAcidic;
+            this.experiment = experiment;
+
+            for (Experiment e : experiment) {
+                if (e.getTag() != null && e.getTag().equals("SPL")) {
+                    if (e.isDryTest())
+                        isDrySplPresent = true;
+                    else isWetSplPresent = true;
+
+                    if (isDrySplPresent && isWetSplPresent)
+                        break;
+                }
+            }
+        }
     }
 }

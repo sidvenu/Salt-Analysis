@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -23,7 +23,6 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.formatString;
 
@@ -40,7 +39,7 @@ public class LongProcedureActivity extends AppCompatActivity {
         setContentView(R.layout.activity_long_procedure);
 
         /* set typeface for headers */
-        Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/fifawelcome.ttf");
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/fifawelcome.ttf");
         ((TextView) findViewById(R.id.dry_tests_header)).setTypeface(tf);
         ((TextView) findViewById(R.id.wet_tests_header)).setTypeface(tf);
 
@@ -49,16 +48,16 @@ public class LongProcedureActivity extends AppCompatActivity {
         groupSeparationTransit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LongProcedureActivity.this,GroupSeparationActivity.class).putExtra("basic_radical_name",currentBasicRadical.name));
+                startActivity(new Intent(LongProcedureActivity.this, GroupSeparationActivity.class).putExtra("basic_radical_name", currentBasicRadical.name));
             }
         });
         View whitespace = findViewById(R.id.white_space);
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) whitespace.getLayoutParams();
-        groupSeparationTransit.measure(0,0);
-        params.height=groupSeparationTransit.getMeasuredHeight();
+        groupSeparationTransit.measure(0, 0);
+        params.height = groupSeparationTransit.getMeasuredHeight();
         whitespace.setLayoutParams(params);
 
-        final AdView adView = (AdView)findViewById(R.id.adViewDryTests);
+        final AdView adView = (AdView) findViewById(R.id.adViewDryTests);
         adView.setVisibility(View.GONE);
 
         @SuppressLint("HardwareIds")
@@ -81,7 +80,6 @@ public class LongProcedureActivity extends AppCompatActivity {
             }
         });
         adView.loadAd(request);
-
 
 
         ActionBar actionBar = getSupportActionBar();

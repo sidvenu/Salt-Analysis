@@ -14,18 +14,6 @@ import android.widget.FrameLayout;
 public class ClickableFrameLayout extends FrameLayout {
     private OnClickListener mOnClickListener;
 
-    @Override
-    public void setOnClickListener(OnClickListener l) {
-        super.setOnClickListener(l);
-        mOnClickListener = l;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        return mOnClickListener != null;
-    }
-
-
     // Standard constructors — just pass everything
     public ClickableFrameLayout(final Context context) {
         super(context);
@@ -35,6 +23,7 @@ public class ClickableFrameLayout extends FrameLayout {
         super(context, attrs);
     }
 
+
     public ClickableFrameLayout(final Context context, final AttributeSet attrs, final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
@@ -42,5 +31,16 @@ public class ClickableFrameLayout extends FrameLayout {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ClickableFrameLayout(final Context context, final AttributeSet attrs, final int defStyleAttr, final int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    @Override
+    public void setOnClickListener(OnClickListener l) {
+        super.setOnClickListener(l);
+        mOnClickListener = l;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return mOnClickListener != null;
     }
 }
