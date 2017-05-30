@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_group_separation"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,7 +31,8 @@
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal">
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/lead_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -41,7 +42,7 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#ffffff" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
     </LinearLayout>
 
     <View
@@ -84,11 +85,13 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/copper_radical"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="#000000" />
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/arsenic_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -99,7 +102,7 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#b7c214" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
     </LinearLayout>
 
     <View
@@ -141,7 +144,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/aluminium_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -151,9 +155,10 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#ffffff" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/iron_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -164,7 +169,7 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#64170d" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
     </LinearLayout>
 
     <View
@@ -206,7 +211,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/manganese_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -216,15 +222,17 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#88795A" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
 
         <Button
+            android:id="@+id/cobnick_radical"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="20dp"
             android:background="#000000" />
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/zinc_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -235,7 +243,7 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#ffffff" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
     </LinearLayout>
 
     <View
@@ -277,7 +285,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/ium_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -287,7 +296,7 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#ffffff" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
     </LinearLayout>
 
     <View
@@ -329,7 +338,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <FrameLayout
+        <io.github.siddharthvenu.saltanalysis.ClickableFrameLayout
+            android:id="@+id/magnesium_radical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#000000"
@@ -339,7 +349,7 @@
                 android:layout_width="29dp"
                 android:layout_height="29dp"
                 android:background="#ffffff" />
-        </FrameLayout>
+        </io.github.siddharthvenu.saltanalysis.ClickableFrameLayout>
     </LinearLayout>
 
 </RelativeLayout>
