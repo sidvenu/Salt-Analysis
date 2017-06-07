@@ -1,10 +1,12 @@
 package io.github.siddharthvenu.saltanalysis;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -12,6 +14,19 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/helvetica.ttf");
+        TextView tv = (TextView) findViewById(R.id.home_header);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.acid_radical_text_view);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.basic_radical_text_view);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.long_procedure_text_view);
+        tv.setTypeface(tf);
+        tv = (TextView) findViewById(R.id.group_separation_text_view);
+        tv.setTypeface(tf);
+
         CardView basicRadical = (CardView) findViewById(R.id.basic_card_home),
                 acidicRadical = (CardView) findViewById(R.id.acid_card_home),
                 grpSeparation = (CardView) findViewById(R.id.grp_separation_card_home),
