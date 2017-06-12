@@ -27,9 +27,9 @@ class Experiment {
     }
 
     Experiment(String experiment, String observation, String conclusion) {
-        this.experiment = experiment;
-        this.observation = observation;
-        this.conclusion = conclusion;
+        setExperiment(experiment);
+        setObservation(observation);
+        setConclusion(conclusion);
     }
 
     String getExperiment() {

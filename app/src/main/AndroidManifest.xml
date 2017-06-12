@@ -38,11 +38,12 @@
             android:name=".GroupSeparationActivity"
             android:parentActivityName=".HomeActivity"
             android:screenOrientation="sensorLandscape"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme.Fullscreen"
             tools:targetApi="jelly_bean" />
         <activity
             android:name=".LongProcedureActivity"
             android:label="Long Procedure"
+            android:theme="@style/AppTheme.NoActionBar.Blue"
             tools:targetApi="jelly_bean" />
     </application>
 

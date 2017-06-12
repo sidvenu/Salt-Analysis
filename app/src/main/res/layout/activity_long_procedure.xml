@@ -17,37 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
-            <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            <View
+                android:id="@+id/top_white_space"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <com.jaredrummler.materialspinner.MaterialSpinner
-                    android:id="@+id/base_choice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:ms_arrow_tint="@android:color/white"
-                    app:ms_background_color="@color/colorAccent"
-                    app:ms_text_color="@android:color/white" />
-
-                <com.jaredrummler.materialspinner.MaterialSpinner
-                    android:id="@+id/acid_choice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight="1"
-                    app:ms_arrow_tint="@android:color/white"
-                    app:ms_background_color="@color/colorAccent"
-                    app:ms_text_color="@android:color/white" />
-            </LinearLayout>
-
+                android:layout_height="wrap_content"/>
             <!--Here goes all the dry tests-->
 
             <com.google.android.gms.ads.AdView
@@ -218,6 +191,80 @@
                 android:layout_marginRight="5dp"
                 android:orientation="vertical" />
 
+            <TextView
+                android:id="@+id/basic_radical_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center_horizontal"
+                android:text="Basic Radical Tests"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="30sp"
+                tools:targetApi="jelly_bean" />
+
+            <LinearLayout
+                android:id="@+id/basic_radical_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:text="@string/experiment"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    tools:targetApi="jelly_bean" />
+
+                <!--View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="?android:attr/dividerVertical" /-->
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:text="@string/observation"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    tools:targetApi="jelly_bean" />
+
+                <!--View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="?android:attr/dividerVertical" /-->
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.8"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:text="@string/conclusion"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    tools:targetApi="jelly_bean" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/basic_radical_long_procedure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical" />
+
             <View
                 android:id="@+id/white_space"
                 android:layout_width="match_parent"
@@ -248,7 +295,36 @@
                 android:fontFamily="sans-serif-smallcaps"
                 android:text="Group Separation"
                 android:textColor="@android:color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:targetApi="jelly_bean" />
         </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingTop="3dp"
+        android:background="#c8bdbdbd">
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/base_choice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:ms_arrow_tint="@android:color/white"
+            app:ms_background_color="@android:color/holo_blue_dark"
+            app:ms_text_color="@android:color/white" />
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/acid_choice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
+            android:layout_weight="1"
+            app:ms_arrow_tint="@android:color/white"
+            app:ms_background_color="@android:color/holo_blue_dark"
+            app:ms_text_color="@android:color/white" />
     </LinearLayout>
 </RelativeLayout>

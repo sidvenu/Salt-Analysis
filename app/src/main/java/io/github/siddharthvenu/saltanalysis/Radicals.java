@@ -203,13 +203,13 @@ class Radicals {
 
             experimentList.add(new Experiment("Wet Test:\nTo the salt solution, dil.HNO{3} is added followed by AgNO{3}",
                     "Curdy white precipitate readily soluble in NH{4}OH",
-                    "AgCl dissolves in NH{4}OH forming a complex",
+                    "AgCl dissolves in NH{4}OH forming a complex. Presence of Cl{{-}}",
                     "AGNO3", false));
 
             experimentList.add(new Experiment("Special Test:\nChromyl Chloride Test:\nSalt is mixed with K{2}Cr{2}O{7} and conc."
                     + h2so4 + " and heated strongly",
                     "Reddish brown fumes",
-                    "Due to the formation of CrO{2}Cl{2}(Chromyl Chloride",
+                    "Due to the formation of CrO{2}Cl{2}(Chromyl Chloride). Chloride is present",
                     "SPL", false));
 
             experimentList.add(new Experiment("The gas is passed through NaOH and Lead Acetate is added",
@@ -264,7 +264,7 @@ class Radicals {
             experimentList.add(new Experiment("To the salt, Pb(NO{3}){2} is added",
                     "Golden yellow spangles",
                     "Due to the formation of PbI{2}",
-                    "SPL", false));
+                    "SPL", true));
 
             listRadical.add(new Radical("Iodide", formula, true, experimentList));
         }

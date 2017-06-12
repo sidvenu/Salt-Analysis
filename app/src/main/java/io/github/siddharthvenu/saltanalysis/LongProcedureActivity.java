@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +43,7 @@ public class LongProcedureActivity extends AppCompatActivity {
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/fifawelcome.ttf");
         ((TextView) findViewById(R.id.dry_tests_header)).setTypeface(tf);
         ((TextView) findViewById(R.id.wet_tests_header)).setTypeface(tf);
+        ((TextView) findViewById(R.id.basic_radical_header)).setTypeface(tf);
 
 
         CardView groupSeparationTransit = (CardView) findViewById(R.id.group_separation_transit_button);
@@ -55,6 +57,13 @@ public class LongProcedureActivity extends AppCompatActivity {
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) whitespace.getLayoutParams();
         groupSeparationTransit.measure(0, 0);
         params.height = groupSeparationTransit.getMeasuredHeight();
+        whitespace.setLayoutParams(params);
+
+        MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.acid_choice);
+        whitespace = findViewById(R.id.top_white_space);
+        params = (LinearLayout.LayoutParams) whitespace.getLayoutParams();
+        spinner.measure(0, 0);
+        params.height = spinner.getMeasuredHeight();
         whitespace.setLayoutParams(params);
 
         final AdView adView = (AdView) findViewById(R.id.adViewDryTests);
@@ -118,7 +127,6 @@ public class LongProcedureActivity extends AppCompatActivity {
         updateLongProcedure(true);
         updateLongProcedure(false);
 
-        MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.acid_choice);
         spinner.setItems(acidNames);
         spinner.setDropdownMaxHeight(Resources.getSystem().getDisplayMetrics().heightPixels / 2);
         spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
@@ -152,16 +160,18 @@ public class LongProcedureActivity extends AppCompatActivity {
 
     void updateLongProcedure(boolean isAcidUpdated) {
         if (isAcidUpdated) {
+
+            // DRY TESTS
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.dry_tests_long_procedure);
             linearLayout.removeAllViews();
             int curIndex = 0;
             List<Experiment> currentAcidRadicalExpts = currentAcidRadical.experiment;
 
             List<Radicals.Radical> radicalList = Radicals.getRadicalDetails();
-            List<String> hcl = new ArrayList<>(), h2so4 = new ArrayList<>(), heat = new ArrayList<>();
-            boolean givesHeat, givesHCl, givesH2SO4;
-            int heatGivePOS = -1, hclGivePOS = -1, h2so4GivePOS = -1;
-            givesH2SO4 = givesHCl = givesHeat = false;
+            List<String> hcl = new ArrayList<>(), h2so4 = new ArrayList<>(), heat = new ArrayList<>(), agno3 = new ArrayList<>();
+            boolean givesHeat, givesHCl, givesH2SO4, givesAgNO3;
+            int heatGivePOS = -1, hclGivePOS = -1, h2so4GivePOS = -1, agno3GivePOS = -1;
+            givesH2SO4 = givesHCl = givesHeat = givesAgNO3 = false;
 
             for (Radicals.Radical r : radicalList) {
                 if (r != null) {
@@ -190,6 +200,13 @@ public class LongProcedureActivity extends AppCompatActivity {
                                         heatGivePOS = expt.indexOf(e);
                                     } else
                                         heat.add(r.formula);
+                                    break;
+                                case "AGNO3":
+                                    if(r.name.equals(currentAcidRadical.name)){
+                                        givesAgNO3 = true;
+                                        agno3GivePOS = expt.indexOf(e);
+                                    } else
+                                        agno3.add(r.formula);
                                     break;
                             }
                     }
@@ -342,6 +359,39 @@ public class LongProcedureActivity extends AppCompatActivity {
                         } else break;
                     }
             }
+            int curWetIndex = 0;
+            LinearLayout wetLinearLayout = (LinearLayout) findViewById(R.id.wet_tests_long_procedure);
+            wetLinearLayout.removeAllViews();
+
+            {
+                View layout = LayoutInflater.from(this).inflate(R.layout.experiment_item, wetLinearLayout, false);
+                layout.findViewById(R.id.expt_linear_layout).setVisibility(View.GONE);
+                //layout.setTag("reuse");
+                setTitleTextView((TextView) layout.findViewById(R.id.general_text_view), "<u>Test for Halides</u>");
+                wetLinearLayout.addView(layout, curWetIndex++);
+                //AgNO3
+                StringBuilder conclusion = new StringBuilder();
+                if (givesAgNO3) {
+                    conclusion.append(currentAcidRadicalExpts.get(agno3GivePOS).getConclusion()).append(". ");
+                }
+                if (agno3.size() > 0) {
+                    conclusion.append("Absence of");
+                    for (String s : agno3) {
+                        conclusion.append(' ').append(s).append(',');
+                    }
+                    conclusion.deleteCharAt(conclusion.length() - 1);
+                }
+                layout = LayoutInflater.from(this).inflate(R.layout.experiment_item, wetLinearLayout, false);
+                ((TextView) layout.findViewById(R.id.experiment_text_view)).setText(formatString("Wet Test:\nTo the salt solution, dil.HNO{3} is added followed by AgNO{3}"));
+
+                ((TextView) layout.findViewById(R.id.observation_text_view)).setText(givesAgNO3 ? formatString(currentAcidRadicalExpts.get(agno3GivePOS).getObservation()) : noChange);
+
+                ((TextView) layout.findViewById(R.id.conclusion_text_view)).setText(formatString(conclusion.toString()));
+
+                //layout.setTag("reuse");
+                wetLinearLayout.addView(layout, curWetIndex++);
+            }
+
             for (Radicals.Radical r : radicalList) {
                 if (r.isDrySplPresent) {
                     View layout = LayoutInflater.from(this).inflate(R.layout.experiment_item, linearLayout, false);
@@ -385,9 +435,51 @@ public class LongProcedureActivity extends AppCompatActivity {
                         } else lastTime = false;
                     }
                 }
+                if (r.isWetSplPresent) {
+                    View layout = LayoutInflater.from(this).inflate(R.layout.experiment_item, wetLinearLayout, false);
+                    layout.findViewById(R.id.expt_linear_layout).setVisibility(View.GONE);
+                    //layout.setTag("reuse");
+                    setTitleTextView((TextView) layout.findViewById(R.id.general_text_view), "<u>Test for " + r.formula + "</u>");
+                    wetLinearLayout.addView(layout, curWetIndex++);
+                    List<Experiment> experimentList = r.experiment;
+                    boolean sameRadical = false;
+                    if (r.name.equals(currentAcidRadical.name)) {
+                        sameRadical = true;
+                    }
+                    boolean lastTime = false;
+                    for (Experiment e : experimentList) {
+                        //layout.setTag("reuse");
+                        if ((!e.isDryTest()) && (e.getTag().equals("SPL")||e.getTag().equals("CONTINUE"))) {
+                            if (sameRadical) {
+                                if (lastTime) {
+                                    layout = LayoutInflater.from(this).inflate(R.layout.divider_horizontal, wetLinearLayout, false);
+                                    wetLinearLayout.addView(layout, curWetIndex++);
+                                }
+                                layout = LayoutInflater.from(this).inflate(R.layout.experiment_item, wetLinearLayout, false);
+                                ((TextView) layout.findViewById(R.id.experiment_text_view)).setText(formatString(e.getExperiment()));
+
+                                ((TextView) layout.findViewById(R.id.observation_text_view)).setText(formatString(e.getObservation()));
+
+                                ((TextView) layout.findViewById(R.id.conclusion_text_view)).setText(formatString(e.getConclusion()));
+
+                                wetLinearLayout.addView(layout, curWetIndex++);
+                                lastTime = true;
+                            } else {
+                                layout = LayoutInflater.from(this).inflate(R.layout.experiment_item, wetLinearLayout, false);
+                                ((TextView) layout.findViewById(R.id.experiment_text_view)).setText(formatString(e.getExperiment()));
+
+                                ((TextView) layout.findViewById(R.id.observation_text_view)).setText(formatString(noChange));
+
+                                ((TextView) layout.findViewById(R.id.conclusion_text_view)).setText(formatString("Absence of " + r.formula));
+                                wetLinearLayout.addView(layout, curWetIndex++);
+                                break;
+                            }
+                        } else lastTime = false;
+                    }
+                }
             }
         } else {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.wet_tests_long_procedure);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.basic_radical_long_procedure);
             linearLayout.removeAllViews();
             int curIndex = 0;
             List<Experiment> currentBasicRadicalExpts = currentBasicRadical.experiment;
