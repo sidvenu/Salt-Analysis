@@ -68,12 +68,12 @@ public class LongProcedureActivity extends AppCompatActivity {
         final AdView adView = findViewById(R.id.adViewDryTests);
         adView.setVisibility(View.GONE);
 
-        @SuppressLint("HardwareIds")
-        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        /*@SuppressLint("HardwareIds")
+        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);*/
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
                 .build();
+                //.addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int i) {
