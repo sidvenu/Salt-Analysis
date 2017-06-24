@@ -26,6 +26,7 @@ public class RadicalListActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             actionBarBgResID = getColor(R.color.colorPrimary);
         } else {
+            //noinspection deprecation
             actionBarBgResID = getResources().getColor(R.color.colorPrimary);
         }
         FadingActionBarHelper helper = new FadingActionBarHelper()
@@ -54,7 +55,7 @@ public class RadicalListActivity extends AppCompatActivity {
             actionBar.setTitle(isAcidic ? "Acid Radicals" : "Basic Radicals");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        final ListView listView = (ListView) findViewById(android.R.id.list);
+        final ListView listView = findViewById(android.R.id.list);
         listView.setAdapter(itemsAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

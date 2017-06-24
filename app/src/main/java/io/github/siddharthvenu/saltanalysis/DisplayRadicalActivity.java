@@ -90,7 +90,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
                 .build();
-        final AdView adView = (AdView) findViewById(R.id.adViewDisplayRadical);
+        final AdView adView = findViewById(R.id.adViewDisplayRadical);
         adView.setVisibility(View.GONE);
         adView.setAdListener(new AdListener() {
             @Override
@@ -157,15 +157,15 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                 actionBar.setDisplayHomeAsUpEnabled(true);
             }
             ArrayList<Experiment> experiments = radical.experiment;
-            LinearLayout rootLayout = (LinearLayout) findViewById(R.id.radical_experiments_list);
+            LinearLayout rootLayout = findViewById(R.id.radical_experiments_list);
             //ListView listView = (ListView) findViewById(R.id.radical_experiments_list);
             //listView.setAdapter(new ExperimentAdapter(experiments, this));
 
             for (int position = 0; position < experiments.size(); position++) {
                 View convertView = LayoutInflater.from(this).inflate(R.layout.experiment_item, rootLayout, false);
 
-                LinearLayout linearLayout = (LinearLayout) convertView.findViewById(R.id.expt_linear_layout);
-                TextView generalText = (TextView) convertView.findViewById((R.id.general_text_view));
+                LinearLayout linearLayout = convertView.findViewById(R.id.expt_linear_layout);
+                TextView generalText = convertView.findViewById((R.id.general_text_view));
 
                 Experiment curExpt = experiments.get(position);
 
@@ -177,13 +177,13 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                     linearLayout.setVisibility(View.VISIBLE);
                     generalText.setVisibility(View.GONE);
 
-                    TextView textView = (TextView) convertView.findViewById(R.id.experiment_text_view);
+                    TextView textView = convertView.findViewById(R.id.experiment_text_view);
                     textView.setText(formatString(curExpt.getExperiment()));
 
-                    textView = (TextView) convertView.findViewById(R.id.observation_text_view);
+                    textView = convertView.findViewById(R.id.observation_text_view);
                     textView.setText(formatString(curExpt.getObservation()));
 
-                    textView = (TextView) convertView.findViewById(R.id.conclusion_text_view);
+                    textView = convertView.findViewById(R.id.conclusion_text_view);
                     textView.setText(formatString(curExpt.getConclusion()));
                 }
                 rootLayout.addView(convertView);

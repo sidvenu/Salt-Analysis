@@ -21,6 +21,7 @@ class ProjectUtilities {
                 .replace("}", "</small></small></sub>");
     }
 
+    @SuppressWarnings("deprecation")
     static Spanned formatString(String str) {
         if (str.contains("<u>")) {
             StringBuilder builder = new StringBuilder(str);

@@ -16,21 +16,21 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/helvetica.ttf");
-        TextView tv = (TextView) findViewById(R.id.home_header);
+        TextView tv = findViewById(R.id.home_header);
         tv.setTypeface(tf);
-        tv = (TextView) findViewById(R.id.acid_radical_text_view);
+        tv = findViewById(R.id.acid_radical_text_view);
         tv.setTypeface(tf);
-        tv = (TextView) findViewById(R.id.basic_radical_text_view);
+        tv = findViewById(R.id.basic_radical_text_view);
         tv.setTypeface(tf);
-        tv = (TextView) findViewById(R.id.long_procedure_text_view);
+        tv = findViewById(R.id.long_procedure_text_view);
         tv.setTypeface(tf);
-        tv = (TextView) findViewById(R.id.group_separation_text_view);
+        tv = findViewById(R.id.group_separation_text_view);
         tv.setTypeface(tf);
 
-        CardView basicRadical = (CardView) findViewById(R.id.basic_card_home),
-                acidicRadical = (CardView) findViewById(R.id.acid_card_home),
-                grpSeparation = (CardView) findViewById(R.id.grp_separation_card_home),
-                longProcedure = (CardView) findViewById(R.id.long_procedure_card_home);
+        CardView basicRadical = findViewById(R.id.basic_card_home),
+                acidicRadical = findViewById(R.id.acid_card_home),
+                grpSeparation = findViewById(R.id.grp_separation_card_home),
+                longProcedure = findViewById(R.id.long_procedure_card_home);
 
         basicRadical.setOnClickListener(new View.OnClickListener() {
             @Override

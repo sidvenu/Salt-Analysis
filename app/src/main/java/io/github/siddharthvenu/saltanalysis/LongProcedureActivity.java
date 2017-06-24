@@ -10,7 +10,6 @@ import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +45,7 @@ public class LongProcedureActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.basic_radical_header)).setTypeface(tf);
 
 
-        CardView groupSeparationTransit = (CardView) findViewById(R.id.group_separation_transit_button);
+        CardView groupSeparationTransit = findViewById(R.id.group_separation_transit_button);
         groupSeparationTransit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,14 +58,14 @@ public class LongProcedureActivity extends AppCompatActivity {
         params.height = groupSeparationTransit.getMeasuredHeight();
         whitespace.setLayoutParams(params);
 
-        MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.acid_choice);
+        MaterialSpinner spinner = findViewById(R.id.acid_choice);
         whitespace = findViewById(R.id.top_white_space);
         params = (LinearLayout.LayoutParams) whitespace.getLayoutParams();
         spinner.measure(0, 0);
         params.height = spinner.getMeasuredHeight();
         whitespace.setLayoutParams(params);
 
-        final AdView adView = (AdView) findViewById(R.id.adViewDryTests);
+        final AdView adView = findViewById(R.id.adViewDryTests);
         adView.setVisibility(View.GONE);
 
         @SuppressLint("HardwareIds")
@@ -136,7 +135,7 @@ public class LongProcedureActivity extends AppCompatActivity {
                 updateLongProcedure(true);
             }
         });
-        spinner = (MaterialSpinner) findViewById(R.id.base_choice);
+        spinner = findViewById(R.id.base_choice);
         spinner.setItems(basicNames);
         spinner.setDropdownMaxHeight(Resources.getSystem().getDisplayMetrics().heightPixels / 2);
         spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
@@ -153,6 +152,7 @@ public class LongProcedureActivity extends AppCompatActivity {
         title.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
         title.setTextSize(15);
 
+        //noinspection deprecation
         title.setTextColor(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? getColor(android.R.color.black)
                 : getResources().getColor(android.R.color.black));
         title.setText(formatString(text));
@@ -162,7 +162,7 @@ public class LongProcedureActivity extends AppCompatActivity {
         if (isAcidUpdated) {
 
             // DRY TESTS
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.dry_tests_long_procedure);
+            LinearLayout linearLayout = findViewById(R.id.dry_tests_long_procedure);
             linearLayout.removeAllViews();
             int curIndex = 0;
             List<Experiment> currentAcidRadicalExpts = currentAcidRadical.experiment;
@@ -360,7 +360,7 @@ public class LongProcedureActivity extends AppCompatActivity {
                     }
             }
             int curWetIndex = 0;
-            LinearLayout wetLinearLayout = (LinearLayout) findViewById(R.id.wet_tests_long_procedure);
+            LinearLayout wetLinearLayout = findViewById(R.id.wet_tests_long_procedure);
             wetLinearLayout.removeAllViews();
 
             {
@@ -479,7 +479,7 @@ public class LongProcedureActivity extends AppCompatActivity {
                 }
             }
         } else {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.basic_radical_long_procedure);
+            LinearLayout linearLayout = findViewById(R.id.basic_radical_long_procedure);
             linearLayout.removeAllViews();
             int curIndex = 0;
             List<Experiment> currentBasicRadicalExpts = currentBasicRadical.experiment;
@@ -494,7 +494,7 @@ public class LongProcedureActivity extends AppCompatActivity {
 
                 if (ProjectUtilities.isGeneralExpt(e)) {
                     v.findViewById(R.id.expt_linear_layout).setVisibility(View.GONE);
-                    TextView generalText = (TextView) v.findViewById(R.id.general_text_view);
+                    TextView generalText = v.findViewById(R.id.general_text_view);
                     generalText.setText(formatString(e.getExperiment()));
                     generalText.setVisibility(View.VISIBLE);
                     linearLayout.addView(v, curIndex++);

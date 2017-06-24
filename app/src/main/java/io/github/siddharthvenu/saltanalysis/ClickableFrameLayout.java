@@ -1,8 +1,6 @@
 package io.github.siddharthvenu.saltanalysis;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
@@ -27,11 +25,11 @@ public class ClickableFrameLayout extends FrameLayout {
     public ClickableFrameLayout(final Context context, final AttributeSet attrs, final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
+    /*
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public ClickableFrameLayout(final Context context, final AttributeSet attrs, final int defStyleAttr, final int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-    }
+    }*/
 
     @Override
     public void setOnClickListener(OnClickListener l) {

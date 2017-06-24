@@ -11,7 +11,7 @@ import com.manuelpeinado.fadingactionbar.FadingActionBarHelperBase;
  * Created by siddh on 18-03-2017.
  */
 
-public final class FadingActionBarHelper extends FadingActionBarHelperBase {
+final class FadingActionBarHelper extends FadingActionBarHelperBase {
 
     private ActionBar mActionBar;
 

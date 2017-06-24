@@ -72,31 +72,31 @@ public class GroupSeparationActivity extends AppCompatActivity {
 
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int dpPrecipitateElement = (int) ((displayMetrics.widthPixels - 45 * displayMetrics.density) / 6.0);
-        LinearLayout precipitate = (LinearLayout) findViewById(R.id.grp_1_ppt);
+        LinearLayout precipitate = findViewById(R.id.grp_1_ppt);
         precipitate.getLayoutParams().width = dpPrecipitateElement;
-        precipitate = (LinearLayout) findViewById(R.id.grp_2_ppt);
+        precipitate = findViewById(R.id.grp_2_ppt);
         precipitate.getLayoutParams().width = dpPrecipitateElement;
-        precipitate = (LinearLayout) findViewById(R.id.grp_3_ppt);
+        precipitate = findViewById(R.id.grp_3_ppt);
         precipitate.getLayoutParams().width = dpPrecipitateElement;
-        precipitate = (LinearLayout) findViewById(R.id.grp_4_ppt);
+        precipitate = findViewById(R.id.grp_4_ppt);
         precipitate.getLayoutParams().width = dpPrecipitateElement;
-        precipitate = (LinearLayout) findViewById(R.id.grp_5_ppt);
+        precipitate = findViewById(R.id.grp_5_ppt);
         precipitate.getLayoutParams().width = dpPrecipitateElement;
         dpPrecipitateElement = (int) ((displayMetrics.widthPixels + 195 * displayMetrics.density) / 6.0);
-        precipitate = (LinearLayout) findViewById(R.id.grp_6_ppt);
+        precipitate = findViewById(R.id.grp_6_ppt);
         precipitate.getLayoutParams().width = dpPrecipitateElement;
 
-        TextView textView = (TextView) findViewById(R.id.grp_1_text);
+        TextView textView = findViewById(R.id.grp_1_text);
         textView.setText(formatText(getResources().getString(R.string.grp_1_text)));
-        textView = (TextView) findViewById(R.id.grp_2_text);
+        textView = findViewById(R.id.grp_2_text);
         textView.setText(formatText(getResources().getString(R.string.grp_2_text)));
-        textView = (TextView) findViewById(R.id.grp_3_text);
+        textView = findViewById(R.id.grp_3_text);
         textView.setText(formatText(getResources().getString(R.string.grp_3_text)));
-        textView = (TextView) findViewById(R.id.grp_4_text);
+        textView = findViewById(R.id.grp_4_text);
         textView.setText(formatText(getResources().getString(R.string.grp_4_text)));
-        textView = (TextView) findViewById(R.id.grp_5_text);
+        textView = findViewById(R.id.grp_5_text);
         textView.setText(formatText(getResources().getString(R.string.grp_5_text)));
-        textView = (TextView) findViewById(R.id.grp_6_text);
+        textView = findViewById(R.id.grp_6_text);
         textView.setText(formatText(getResources().getString(R.string.grp_6_text)));
     }
 
@@ -118,6 +118,7 @@ public class GroupSeparationActivity extends AppCompatActivity {
     }
 
     Spanned formatText(String s) {
+        //noinspection deprecation
         return Html.fromHtml(s.replace("{", "<sub><small><small>").replace("}", "</small></small></sub>").replace("\n", "<br />"));
     }
 
