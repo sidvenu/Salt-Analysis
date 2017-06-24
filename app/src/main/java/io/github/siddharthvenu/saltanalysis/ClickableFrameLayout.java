@@ -5,10 +5,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
-/**
- * Created by siddh on 31-05-2017.
- */
-
 public class ClickableFrameLayout extends FrameLayout {
     private OnClickListener mOnClickListener;
 

@@ -7,10 +7,6 @@ import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by siddh on 17-03-2017.
- */
-
 class ProjectUtilities {
 
     private static String stringChangeHtml(String str) {

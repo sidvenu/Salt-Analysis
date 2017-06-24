@@ -7,10 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.manuelpeinado.fadingactionbar.FadingActionBarHelperBase;
 
-/**
- * Created by siddh on 18-03-2017.
- */
-
 final class FadingActionBarHelper extends FadingActionBarHelperBase {
 
     private ActionBar mActionBar;

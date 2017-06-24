@@ -1,8 +1,4 @@
 package io.github.siddharthvenu.saltanalysis;
-
-/**
- * Created by siddh on 02-03-2017.
- */
 class Experiment {
     private String experiment, observation, conclusion;
     private String tag = null;

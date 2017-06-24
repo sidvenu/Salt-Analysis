@@ -3,10 +3,6 @@ package io.github.siddharthvenu.saltanalysis;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by siddh on 27-02-2017.
- */
-
 class Radicals {
 
     static List<Radical> getRadicalDetails() {
