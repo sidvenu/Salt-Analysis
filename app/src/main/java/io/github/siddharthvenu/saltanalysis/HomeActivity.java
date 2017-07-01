@@ -172,7 +172,7 @@ public class HomeActivity extends AppCompatActivity {
                 String latestTag = output.substring(start, endTag).replace('-', ' ').replace("v", "");
                 String appTag = BuildConfig.VERSION_NAME;
                 //Log.v(getClass().getSimpleName(), "Latest tag: " + latestTag + "\tApp tag: " + appTag);
-                if (TextUtils.equals(latestTag.toLowerCase(), appTag.toLowerCase())) {
+                if (!TextUtils.equals(latestTag.toLowerCase(), appTag.toLowerCase())) {
                     int endLink = output.indexOf("\"", start);
                     String link = "https://github.com" + releaseUrl + output.substring(start, endLink);
                     //Log.v(getClass().getSimpleName(), link);
