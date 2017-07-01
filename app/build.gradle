@@ -7,8 +7,8 @@ android {
             applicationId "io.github.siddharthvenu.saltanalysis"
             minSdkVersion 15
             targetSdkVersion 26
-            versionCode 4
-            versionName "1.2 Beta"
+            versionCode 5
+            versionName "2.0"
             testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         }
     buildTypes {
