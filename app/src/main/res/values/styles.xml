@@ -33,6 +33,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
     <style name="AppTheme.NoActionBar.Blue">
         <item name="colorPrimaryDark">#3949ab</item>

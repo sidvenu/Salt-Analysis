@@ -128,10 +128,10 @@ public class HomeActivity extends AppCompatActivity {
             BroadcastReceiver onComplete = new BroadcastReceiver() {
                 public void onReceive(Context context, Intent intent) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            Intent install = new Intent(Intent.ACTION_INSTALL_PACKAGE);
-                            install.setData(uri);
-                            install.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION|Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(install);
+                        Intent install = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+                        install.setData(uri);
+                        install.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION|Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(install);
                     } else {
                         Uri apkUri = Uri.fromFile(file);
                         Intent install = new Intent(Intent.ACTION_VIEW);
