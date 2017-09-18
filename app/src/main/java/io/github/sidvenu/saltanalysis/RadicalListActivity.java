@@ -1,4 +1,4 @@
-package io.github.siddharthvenu.saltanalysis;
+package io.github.sidvenu.saltanalysis;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;

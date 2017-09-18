@@ -1,4 +1,4 @@
-package io.github.siddharthvenu.saltanalysis;
+package io.github.sidvenu.saltanalysis;
 class Experiment {
     private String experiment, observation, conclusion;
     private String tag = null;

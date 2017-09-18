@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "618023260265",
-    "firebase_url": "https://salt-analysis.firebaseio.com",
-    "project_id": "salt-analysis",
-    "storage_bucket": "salt-analysis.appspot.com"
+    "project_number": "416386529746",
+    "firebase_url": "https://salt-analysis-9748f.firebaseio.com",
+    "project_id": "salt-analysis-9748f",
+    "storage_bucket": "salt-analysis-9748f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:618023260265:android:d34874f387add0d0",
+        "mobilesdk_app_id": "1:416386529746:android:b2196b8bc5bd4d77",
         "android_client_info": {
-          "package_name": "io.github.siddharthvenu.saltanalysis"
+          "package_name": "io.github.sidvenu.saltanalysis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "618023260265-nsom6il7lqqj0qtjldeh90rbljvt0p45.apps.googleusercontent.com",
+          "client_id": "416386529746-h2id4rg04ea5edkghe9u8j7gtujubqk7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "io.github.siddharthvenu.saltanalysis",
+            "package_name": "io.github.sidvenu.saltanalysis",
             "certificate_hash": "7d2115916047f1a75aded563e76831a08d261157"
           }
         },
         {
-          "client_id": "618023260265-ktkq1qqclhadfk57tdp5beteslfuvj1l.apps.googleusercontent.com",
+          "client_id": "416386529746-k4q7spi2b6b5iq2teiv4gstfjqvie1lg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB2ZJX8x0INR8M0HsYIxZlGoLWEZ5haKSI"
+          "current_key": "AIzaSyBkbxcZ0J8Jq1YWnNagNX_vCqx4k33ybNI"
         }
       ],
       "services": {
@@ -37,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416386529746-k4q7spi2b6b5iq2teiv4gstfjqvie1lg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

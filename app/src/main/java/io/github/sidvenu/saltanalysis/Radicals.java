@@ -1,4 +1,4 @@
-package io.github.siddharthvenu.saltanalysis;
+package io.github.sidvenu.saltanalysis;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,10 @@
-package io.github.siddharthvenu.saltanalysis;
+package io.github.sidvenu.saltanalysis;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -24,7 +22,8 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.formatString;
+
+import static io.github.sidvenu.saltanalysis.ProjectUtilities.formatString;
 
 
 public class LongProcedureActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package io.github.siddharthvenu.saltanalysis;
+package io.github.sidvenu.saltanalysis;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
-import static io.github.siddharthvenu.saltanalysis.ProjectUtilities.formatString;
+import static io.github.sidvenu.saltanalysis.ProjectUtilities.formatString;
 
 public class DisplayRadicalActivity extends AppCompatActivity {
 

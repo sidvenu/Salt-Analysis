@@ -1,4 +1,4 @@
-package io.github.siddharthvenu.saltanalysis;
+package io.github.sidvenu.saltanalysis;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
