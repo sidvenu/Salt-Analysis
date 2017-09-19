@@ -31,7 +31,7 @@ import static io.github.sidvenu.saltanalysis.ProjectUtilities.formatString;
 
 public class DisplayRadicalActivity extends AppCompatActivity {
 
-    String youtubeDevKey = "AIzaSyB2ZJX8x0INR8M0HsYIxZlGoLWEZ5haKSI", radicalName;
+    String youtubeDevKey = "AIzaSyA0w8egsJLwWG5aKwiYQN92IBG2ljRvsqY", radicalName;
     Map<String, String> v;
     YouTubePlayerFragment player;
 
