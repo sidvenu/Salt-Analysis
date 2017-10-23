@@ -1,5 +1,6 @@
 package io.github.sidvenu.saltanalysis;
 
+import android.app.Dialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -127,7 +128,9 @@ public class DisplayRadicalActivity extends AppCompatActivity {
                         .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                         .hide(player)
                         .commit();
-                youTubeInitializationResult.getErrorDialog(DisplayRadicalActivity.this, 0).show();
+                Dialog errorDialog = youTubeInitializationResult.getErrorDialog(DisplayRadicalActivity.this, 0);
+                if(errorDialog!=null)
+                    errorDialog.show();
             }
         });
 
