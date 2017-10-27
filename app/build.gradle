@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.0'
 
     defaultConfig {
         applicationId "io.github.sidvenu.saltanalysis"
         minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 7
-        versionName "2.2"
+        targetSdkVersion 27
+        versionCode 8
+        versionName "2.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,22 +16,6 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            /*signingConfig getSigningConfig()
-            def str_ver
-            if ((int) (code / 100) != 0) {
-                str_ver = String.valueOf(code)
-            } else if ((int) (code / 10) != 0) {
-                str_ver = "0" + String.valueOf(code)
-            } else {
-                str_ver = "00" + String.valueOf(code)
-            }
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    output.outputFile = new File(output.outputFile.parent,
-                            output.outputFile.name.replace(output.outputFile.name, "alpha_test_" + str_ver + ".apk")
-                    )
-                }
-            }*/
         }
     }
 }
@@ -44,33 +28,16 @@ dependencies {
 
 
     compile files('libs/YouTubeAndroidPlayerApi.jar')
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:cardview-v7:26.1.0'
-    compile 'com.android.support:recyclerview-v7:26.1.0'
-    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:appcompat-v7:27.0.0'
+    compile 'com.android.support:cardview-v7:27.0.0'
+    compile 'com.android.support:recyclerview-v7:27.0.0'
+    compile 'com.android.support:design:27.0.0'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar-abc:3.1.2'
-    compile 'com.google.firebase:firebase-core:11.2.2'
-    compile 'com.google.firebase:firebase-ads:11.2.2'
+    compile 'com.google.firebase:firebase-core:11.4.2'
+    compile 'com.google.firebase:firebase-ads:11.4.2'
     compile 'com.jaredrummler:material-spinner:1.1.0'
 
     testCompile 'junit:junit:4.12'
 }
-
-repositories {
-    maven {
-        url 'https://maven.google.com'
-    }
-}
-/*
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion '25.3.1'
-            }
-        }
-    }
-}*/
 
 apply plugin: 'com.google.gms.google-services'
