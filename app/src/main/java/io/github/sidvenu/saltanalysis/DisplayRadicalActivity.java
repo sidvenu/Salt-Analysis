@@ -7,7 +7,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -88,7 +87,7 @@ public class DisplayRadicalActivity extends AppCompatActivity {
         AdRequest request = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-                //.addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
+        //.addTestDevice(ProjectUtilities.md5(android_id).toUpperCase())
         final AdView adView = findViewById(R.id.adViewDisplayRadical);
         adView.setVisibility(View.GONE);
         adView.setAdListener(new AdListener() {
@@ -123,28 +122,21 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-                getFragmentManager().beginTransaction()
-                        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
-                        .hide(player)
-                        .commit();
-                Dialog errorDialog = youTubeInitializationResult.getErrorDialog(DisplayRadicalActivity.this, 0);
-                if(errorDialog!=null)
-                    errorDialog.show();
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult result) {
+                if (player != null)
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                            .hide(player)
+                            .commit();
+                if (result.isUserRecoverableError()) {
+                    Dialog errorDialog = result.getErrorDialog(DisplayRadicalActivity.this, 0);
+                    if (errorDialog != null)
+                        errorDialog.show();
+                }
             }
         });
 
         radicalName = getIntent().getStringExtra("radical");
-        /*if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N_MR1) {
-            Log.v("HAHA", "Reached inside");
-            try {
-                ((LinearLayout) findViewById(R.id.display_radical_root))
-                        .addView(getNewAdInstance(this, getString(R.string.ad_unit_radical_info_bottom)), 1);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }*/
-        Log.v("HAHA", radicalName);
         List<Radicals.Radical> radicalList = Radicals.getRadicalDetails();
         Radicals.Radical radical = null;
         for (Radicals.Radical r : radicalList)
@@ -159,8 +151,6 @@ public class DisplayRadicalActivity extends AppCompatActivity {
             }
             ArrayList<Experiment> experiments = radical.experiment;
             LinearLayout rootLayout = findViewById(R.id.radical_experiments_list);
-            //ListView listView = (ListView) findViewById(R.id.radical_experiments_list);
-            //listView.setAdapter(new ExperimentAdapter(experiments, this));
 
             for (int position = 0; position < experiments.size(); position++) {
                 View convertView = LayoutInflater.from(this).inflate(R.layout.experiment_item, rootLayout, false);
